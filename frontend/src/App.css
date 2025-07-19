@@ -1,0 +1,280 @@
+/* Estilos Globais */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f7f6;
+  color: #333;
+}
+
+.App {
+  text-align: center;
+}
+
+/* Layout Principal de Três Colunas */
+.container-principal-tres-colunas {
+  display: flex;
+  height: 100vh; /* Altura total da viewport */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.coluna {
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden; /* Previne scroll na coluna inteira */
+  border-right: 1px solid #ddd; /* Divisória entre colunas */
+}
+
+.coluna:last-child {
+  border-right: none;
+}
+
+.coluna-esquerda {
+  flex: 0 0 250px; /* Largura fixa para a coluna de abas */
+  background-color: #e9ecef;
+}
+
+.coluna-central {
+  flex: 1; /* Ocupa o espaço restante */
+  background-color: #ffffff;
+}
+
+.coluna-direita {
+  flex: 0 0 300px; /* Largura fixa para a coluna de anotações */
+  background-color: #f8f9fa;
+}
+
+.titulo-coluna {
+  padding: 15px;
+  margin: 0;
+  background-color: #dee2e6;
+  border-bottom: 1px solid #ccc;
+  font-size: 1.1em;
+  font-weight: 600;
+  text-align: left;
+}
+
+/* Coluna Esquerda: Abas e Conversas */
+.container-abas {
+  padding: 10px;
+  overflow-y: auto; /* Scroll apenas nesta área */
+  flex-grow: 1;
+}
+
+.container-abas h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: left;
+    font-size: 1em;
+    color: #495057;
+}
+
+.aba-container {
+  margin-bottom: 15px;
+}
+
+.aba-container h4 {
+  margin: 0 0 8px 0;
+  font-size: 0.9em;
+  color: #6c757d;
+  text-align: left;
+  padding-left: 5px;
+}
+
+.lista-conversas {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-conversas li {
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  background-color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid #e0e0e0;
+  transition: background-color 0.2s ease;
+  font-size: 0.9em;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lista-conversas li:hover {
+  background-color: #f1f3f5;
+}
+
+.lista-conversas li.selecionada {
+  background-color: #007bff;
+  color: white;
+  border-color: #0056b3;
+}
+
+.contador-msgs {
+    font-size: 0.8em;
+    color: #888;
+}
+
+.lista-conversas li.selecionada .contador-msgs {
+    color: #eee;
+}
+
+/* Coluna Central: Chat */
+.chat-ativo {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ocupa toda a altura da coluna central */
+  padding: 0; /* Removido padding para usar toda a altura */
+}
+
+.info-chat {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background-color: #f1f3f5;
+    border-bottom: 1px solid #ddd;
+    font-size: 0.9em;
+}
+
+.acoes-chat {
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+    background-color: #f8f9fa;
+    text-align: left;
+}
+
+.acoes-chat span {
+    margin-right: 10px;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.acoes-chat button {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 4px 8px;
+    font-size: 0.8em;
+    cursor: pointer;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
+
+.acoes-chat button:hover {
+    background-color: #5a6268;
+}
+
+.area-mensagens {
+  flex-grow: 1; /* Ocupa o espaço restante */
+  overflow-y: auto; /* Scroll apenas nas mensagens */
+  padding: 15px;
+  background-color: #ffffff;
+}
+
+.mensagem {
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  border-radius: 15px;
+  max-width: 70%;
+  clear: both;
+  word-wrap: break-word;
+}
+
+.mensagem .remetente {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 3px;
+  font-size: 0.8em;
+  color: #555;
+}
+
+.mensagem .texto {
+    font-size: 0.95em;
+}
+
+.mensagem .timestamp {
+  display: block;
+  font-size: 0.75em;
+  color: #888;
+  margin-top: 4px;
+  text-align: right;
+}
+
+.mensagem.cliente {
+  background-color: #e1fec6;
+  float: left;
+  border-bottom-left-radius: 3px;
+}
+
+.mensagem.atendente {
+  background-color: #d6eaff;
+  float: right;
+  border-bottom-right-radius: 3px;
+}
+
+.mensagem.atendente .remetente,
+.mensagem.atendente .timestamp {
+    text-align: right;
+}
+
+.area-input {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  background-color: #f8f9fa;
+}
+
+.area-input input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  margin-right: 10px;
+  font-size: 0.9em;
+}
+
+.area-input button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s ease;
+}
+
+.area-input button:hover {
+  background-color: #0056b3;
+}
+
+.selecione-conversa {
+    padding: 20px;
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Coluna Direita: Anotações */
+.area-anotacoes {
+  flex-grow: 1; /* Ocupa espaço vertical */
+  margin: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.9em;
+  resize: none; /* Impede redimensionamento pelo usuário */
+  box-sizing: border-box;
+  width: calc(100% - 30px); /* Ajusta largura considerando padding */
+}
+
